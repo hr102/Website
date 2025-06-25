@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Beautiful Wife</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Pacifico&family=Poppins:wght@300;600&display=swap');
+        
+        :root {
+            --love-pink: #ff6b8b;
+            --gold: #ffd700;
+            --chocolate: #4b2c20;
+            --light-pink: #fff0f5;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #fff0f5 0%, #ffe6ee 100%);
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .container {
+            text-align: center;
+            padding: 2rem;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(255, 107, 139, 0.3);
+            backdrop-filter: blur(5px);
+            max-width: 800px;
+            animation: fadeIn 1.5s ease-out;
+            border: 3px solid var(--love-pink);
+        }
+        
+        h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 4rem;
+            margin: 0;
+            color: var(--love-pink);
+            text-shadow: 2px 2px 0 var(--light-pink);
+            animation: heartbeat 1.5s infinite;
+        }
+        
+        .heart {
+            color: red;
+            font-size: 2rem;
+            animation: pulse 1.5s infinite;
+        }
+        
+        p.message {
+            font-size: 1.5rem;
+            line-height: 1.6;
+            color: #333;
+            margin: 2rem 0;
+            position: relative;
+        }
+        
+        .couple-photo {
+            width: 300px;
+            height: 300px;
+            margin: 2rem auto;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--love-pink);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            transform-origin: center;
+            animation: float 6s infinite ease-in-out;
+            transition: all 0.5s ease;
+        }
+        
+        .couple-photo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(255, 107, 139, 0.6);
+        }
+        
+        .chocolate-cake {
+            width: 250px;
+            height: auto;
+            margin: 2rem auto;
+            filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
+            animation: bounce 3s infinite;
+        }
+        
+        .memory {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: rgba(255, 235, 240, 0.7);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .memory:hover {
+            transform: scale(1.02);
+            background: rgba(255, 215, 225, 0.8);
+        }
+        
+        .love-letter {
+            display: none;
+            margin-top: 2rem;
+            padding: 2rem;
+            background: #fff;
+            border-radius: 15px;
+            position: relative;
+            border: 2px dashed var(--love-pink);
+        }
+        
+        .love-letter:before {
+            content: "";
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 20px;
+            background: #fff;
+            clip-path: polygon(0 0, 100% 0, 80% 100%, 20% 100%);
+        }
+        
+        button {
+            background: linear-gradient(45deg, var(--love-pink), #ff8fa3);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 107, 139, 0.4);
+            margin: 1rem;
+        }
+        
+        button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 107, 139, 0.6);
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.05); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        /* Floating hearts */
+        .heart-particle {
+            position: absolute;
+            font-size: 20px;
+            color: var(--love-pink);
+            animation: float-up 6s linear infinite;
+            opacity: 0;
+        }
+        
+        @keyframes float-up {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .container { margin: 1rem; }
+            .couple-photo { width: 200px; height: 200px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Happy Birthday My Love <span class="heart">♥</span></h1>
+        <p class="message">To the most amazing Wife in the world...</p>
+        
+        <!-- Replace with your couple photo -->
+        <img src="https://example.com/your-couple-photo.jpg" alt="Us Together" class="couple-photo">
+        
+        <!-- Chocolate cake -->
+        <img src="https://drive.google.com/file/d/195k1X5htPY2e2K2urKaE71qpXzSrRNvh/view?usp=drivesdk " alt="Chocolate Cake" class="chocolate-cake">
+        
+        <div class="memory">
+            <p>Remember our first date? That day my life changed forever...</p>
+        </div>
+        <div class="memory">
+            <p>Your laughter is my favorite sound in the world</p>
+        </div>
+        <div class="memory">
+            <p>Every moment with you is special to me</p>
+        </div>
+        
+        <button id="loveLetterBtn">Read My Love Letter</button>
+        
+        <div class="love-letter" id="loveLetter">
+            <p>My Dearest,</p>
+            <p>On your special day, I want you to know how much you mean to me. Your smile brightens my darkest days, your love gives me strength, and your presence makes my life complete.</p>
+            <p>Thank you for being you - beautiful inside and out. I cherish every moment we share and look forward to creating countless more memories together.</p>
+            <p>Happy Birthday to the woman who stole my heart and continues to amaze me every single day.</p>
+            <p>Forever yours,<br>♥ Me</p>
+        </div>
+    </div>
+    
+    <button style="position: fixed; bottom: 20px; right: 20px;" id="heartsBtn">Send Hearts</button>
+    
+    <script>
+        // Love letter button
+        document.getElementById('loveLetterBtn').addEventListener('click', function() {
+            const letter = document.getElementById('loveLetter');
+            if (letter.style.display === 'none' || !letter.style.display) {
+                letter.style.display = 'block';
+                this.textContent = 'Close Letter';
+                
+                // Create heart animation
+                createHearts(10);
+            } else {
+                letter.style.display = 'none';
+                this.textContent = 'Read My Love Letter';
+            }
+        });
+        
+        // Hearts button
+        document.getElementById('heartsBtn').addEventListener('click', function() {
+            createHearts(30);
+        });
+        
+        // Create floating hearts
+        function createHearts(count) {
+            for (let i = 0; i < count; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.className = 'heart-particle';
+                    heart.innerHTML = '♥';
+                    heart.style.left = Math.random() * 100 + 'vw';
+                    heart.style.animationDuration = Math.random() * 4 + 3 + 's';
+                    heart.style.fontSize = Math.random() * 20 + 15 + 'px';
+                    document.body.appendChild(heart);
+                    
+                    // Remove heart after animation
+                    setTimeout(() => {
+                        heart.remove();
+                    }, 6000);
+                }, i * 300);
+            }
+        }
+        
+        // Initial floating hearts
+        createHearts(5);
+        
+        // Bounce the cake continuously
+        setInterval(() => {
+            const cake = document.querySelector('.chocolate-cake');
+            cake.style.animation = 'none';
+            void cake.offsetWidth; // Trigger reflow
+            cake.style.animation = 'bounce 3s infinite';
+        }, 3000);
+    </script>
+</body>
+</html>
